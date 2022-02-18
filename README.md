@@ -1,1 +1,1 @@
-<img src="./images/logo-up-4color-stamp.png" width="50" height="50">
+<img src="./images/logo-up-4color-stamp.png" width="200" height="200">
