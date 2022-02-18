@@ -1,0 +1,230 @@
+\documentclass[twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{minted}
+\usepackage{xcolor} %to access the named color LightGray in minted environment
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{afterpage}
+\usepackage[intoc]{nomencl}
+\usepackage{etoolbox}
+
+\makenomenclature
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{}%
+    \newpage}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand\HRule{\rule{\textwidth}{1pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Alexandros Dimas}
+\lhead{Motion Planning for Collision-tolerant Aerial Robots}
+\lfoot{\small Department of Mechanical Engineering & Aeronautics - Division of Design and Manufacturing}
+\renewcommand{\footrulewidth}{1pt}
+\rfoot{\thepage}
+\cfoot{}
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancy}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+
+
+% \newgeometry{
+%     top=1.25in,
+%     bottom=1.25in,
+%     outer=0.75in,
+%     inner=1.5in,
+% }
+
+\title{Motion Planning for Collision-tolerant Aerial Robots}
+\author{Alexandros Dimas}
+\date{\today}
+\renewcommand{\baselinestretch}{1.5} 
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \fill [lightgray] ($(current page.north west) + (1in,-1in)$) rectangle ($(current page.south east) + (-1in,1in)$);
+\end{tikzpicture}
+
+\begin{minipage}{0.25\textwidth}
+\begin{figure}[H]
+\includegraphics[width =\textwidth]{images/logo-up-4color-stamp.png}
+\end{figure}
+\end{minipage} \hfill
+\begin{minipage}{0.85\textwidth}
+{\setstretch{2}
+\large \textbf{University of Patras}\\
+\large \textbf{Department of Mechanical Engineering and Aeronautics}\\
+\large \textbf{Division of Design and Manufacturing}\\
+\large \textbf{Robotics Group}
+}
+\end{minipage}
+
+\vspace{1cm}
+
+\centering
+\large{\textbf{Diploma Thesis}}
+
+\vspace{1cm}
+
+\Large{\textbf{Motion Planning for Collision-Tolerant Aerial Robots}}
+
+\vspace{1.2cm}
+
+\Large{\textbf{Alexandros Dimas}}\\
+\large 1054531
+
+\vspace{1.2cm}
+\textbf{Evagellos Dermatas, Associate professor, University of Patras}\\
+\textbf{Panagiotis Koustoumpardis,\ Research \& Teaching Associate , \\University of Patras}\\
+\textbf{Kostas Alexis,\ Full Professor, Norwegian University of Science and Technology}
+
+\vspace{1.2cm}
+dissertation submitted to the department of Mechanical Engineering and Aeronautics of University of Patras
+
+\vspace{0.2cm}
+\Large Patras, Month, 2023
+\end{titlepage}
+\newpage
+
+\pagenumbering{roman}
+
+\mbox{}
+\vfill
+
+\noindent
+{\tt
+University of Patras, Department of Mechanical Engineering and Aeronautics\\
+Alexandros Dimas\\ \copyright\ 2023 -- All rights reserved \newline
+}
+\newpage
+\begin{minipage}{0.25\textwidth}
+\begin{figure}[H]
+\includegraphics[width =\textwidth]{images/logo-up-4color-stamp.png}
+\end{figure}
+\end{minipage} \hfill
+\begin{minipage}{0.85\textwidth}
+{\setstretch{2}
+\large \textbf{University of Patras}\\
+\large \textbf{Department of Mechanical Engineering and Aeronautics}\\
+\large \textbf{Division of Design and Manufacturing}\\
+\large \textbf{Robotics Group}
+}
+\end{minipage}
+
+\vspace{4cm}
+\begin{center}
+    This dissertation was presented \\ by \textbf{Alexandros Dimas} \\ 1054531 \\ 
+    \vspace{2cm}
+    on \today
+\end{center}
+
+\newpage
+\mbox{}
+\vfill
+\noindent
+\textgreek{
+Η έγκριση της διπλωματικής εργασίας δεν υποδηλοί την αποδοχή των γνωμών του συγγραφέα.\\ Κατά τη συγγραφή τηρήθηκαν οι αρχές της ακαδημαϊκής δεοντολογίας.} 
+{\tt
+}
+\newpage
+
+\clearpage
+\addcontentsline{toc}{chapter}{\textgreek{Περίληψη}}
+\chapter*{\textgreek{Περίληψη}}
+\textgreek{
+\begin{center}
+    \textbf{
+    \large Σχεδιασμός Κίνησης για Εναέρια Ρομποτικά Οχήματα με Ανοχή σε Συγκρούσεις
+    \\
+    \large Αλέξανδρος Δήμας
+    }
+\end{center}
+[Εδώ μπαίνει η περίληψη της εργασίας που δεν θα πρέπει να υπερβαίνει τις 350 λέξεις]
+}
+\mbox{}
+\vfill
+\noindent
+\textgreek{
+Λέξεις κλειδιά \\ 
+Εδώ μπαίνουν μέχρι 5 λέξεις κλειδιά που αντιστοιχούν στα πλέον αντιπροσωπευτικά αντικείμενα-θέματα της εργασίας  
+}
+\afterpage{\null\newpage}
+\newpage
+
+\clearpage
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{Abstract}
+\begin{center}
+    \textbf{
+    \large Motion Planning for Collision-Tolerant Aerial Robots
+    \\
+    \large Alexandros Dimas
+    }
+\end{center}
+\lipsum[1-2]
+\mbox{}
+\vfill
+\noindent
+Keywords \\ Up to five relevant keywords
+\afterpage{\null\newpage}
+
+\clearpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\afterpage{\null\newpage}
+\clearpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\afterpage{\null\newpage}
+
+% https://www.overleaf.com/learn/latex/Nomenclatures
+\newpage
+\include{nomenclature}
+\afterpage{\null\newpage}
+
+
+\tableofcontents
+\afterpage{\null\newpage}
+
+\clearpage
+\pagenumbering{arabic}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\chapter*{Acknowledgements}
+I want to thank ...
+\lipsum[1-2]
+\afterpage{\null\newpage}
+
+
+\include{chapter-1}
+\include{chapter-2}
+\include{chapter-3}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\appendix
+\include{cpp-code}
+\include{matlab-code}
+\end{document}
